@@ -1,7 +1,6 @@
 const filmsUrl = " http://localhost:3000/films";
 
 
-
 //Fetch fist movie details
 function fetchFirstMovie (id) {
     fetch(`${filmsUrl}/${id}`)
@@ -28,7 +27,6 @@ function renderMovieTitles (movieTitles) {
     movies.innerHTML = movieTitles.title.toUpperCase();
     movieList.appendChild(movies);
 }
-
 fetchMovieTitles().then(movies => {
     movies.forEach(movie => {
         renderMovieTitles(movie);
