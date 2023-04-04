@@ -28,3 +28,27 @@ function renderMovieTitles (movieTitles) {
     movies.innerHTML = movieTitles.title.toUpperCase();
     movieList.appendChild(movies);
 }
+
+fetchMovieTitles().then(movies => {
+    movies.forEach(movie => {
+        renderMovieTitles(movie);
+    })
+})
+function purchaseMovieTicket() {
+    const purchaseMovieTicket =document.getElementById("buy-ticket")
+    const ticketNum =document.getElementById("ticket-num")
+        purchaseMovieTicket.addEventListener('click', (e) => {
+        let count = parseInt(ticketNum.textContent.split(""));
+       if(count > 1){
+        ticketNum.textContent = `${count - 1}`
+      } else {
+        ticketNum.innerHTML = ''
+        ticketNum.textContent = "SOLD OUT"
+      }
+      })
+  }
+document.addEventListener("DOMContentLoaded", function () {
+    fetchFirstMovie(1);
+    fetchMovieTitles();
+    purchaseMovieTicket()
+})
