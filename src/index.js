@@ -1,7 +1,8 @@
 const filmsUrl = " http://localhost:3000/films";
+const baseUrl = "http://localhost:3000";
 
 
-//Fetch fist movie details
+//Fetch first movie details
 function fetchFirstMovie (id) {
     fetch(`${filmsUrl}/${id}`)
     .then(response => response.json())
@@ -20,6 +21,7 @@ function fetchMovieTitles () {
     .then(response => response.json())
     //.then(data => console.log(data));
 }
+
 //Display movie titles
 function renderMovieTitles (movieTitles) {
     const movieList = document.getElementById("films");
